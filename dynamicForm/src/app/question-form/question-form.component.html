@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title> <p> To create a scenario please upload a configation JSON file first </p> </mat-card-title>
+    <br>
+    <mat-card-content>
+        <div>
+            <form (ngSubmit)="onSubmit()" [formGroup]="form">
+              <div *ngFor="let question of questions" class="form-row">
+                <app-question [question]="question" [form]="form"></app-question>
+              </div>
+              <br>
+              <div class="form-row">
+                <button mat-stroked-button type="submit" [disabled]="!form.valid">Submit</button>
+                <button *ngIf="isDialog" mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+              </div>
+            </form>
+          </div>
+    </mat-card-content>
+</mat-card>
